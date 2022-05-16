@@ -1,0 +1,25 @@
+.trainers {
+    background-color: #404040;
+}
+
+#denisgymTeam {
+
+    text-align: center;
+    position: relative;
+    font-size: 48px;
+    margin-top: 60px;
+    margin-bottom: 100px;
+
+}
+
+
+.trainer-box {
+    margin-bottom: 100px;
+    border-style: solid;
+    border-color: rgba(166, 40, 45, .71);
+    border-width: 3px;
+    border-radius: 10px;
+    height: 550px;
+    width: 400px;
+
+}

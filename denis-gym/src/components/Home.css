@@ -1,0 +1,25 @@
+#home {
+    height: 100vh;
+
+}
+
+#gym-image {
+    background-image: url(D:/Labosi2021/WEB/denis-gym/src/images/gym.jpg);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0px;
+    margin-top: 0;
+}
+
+#gym-picture-text {
+    position: absolute;
+    width: 350px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(64, 64, 64, 0.85);
+
+}

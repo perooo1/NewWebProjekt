@@ -1,0 +1,22 @@
+
+.trainer {
+    display: flex;
+    justify-content: center;
+}
+
+.trainer-pic {
+
+    width: 280px;
+    height: 280px;
+    position: inherit;
+    background-size: cover;
+    display: block;
+    border-radius: 280px;
+    -webkit-border-radius: 280px;
+    -moz-border-radius: 280px;
+}
+
+.trainer-text {
+    margin-left: 15px;
+    margin-right: 15px;
+}

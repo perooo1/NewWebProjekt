@@ -1,0 +1,75 @@
+.navbar {
+    background-color: rgba(166, 40, 45, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2147483640;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .9);
+}
+
+a {
+    text-decoration: solid;
+    font-family: poppins;
+    color: #ebebed;
+}
+
+.nav-link {
+    text-decoration: solid;
+    font-family: poppins;
+    color: #ebebed;
+}
+
+#navbarNav {
+    padding: 0;
+
+}
+
+.navbar-brand {
+    margin-left: 15px;
+}
+
+.navbar-toggler {
+    background-color: #a6282d;
+    margin-right: 8px;
+}
+
+.navbar-toggler:focus {
+    color: rgb(129, 36, 39);
+    box-shadow: 0 0 0 0.2rem;
+}
+
+#login-image {
+    height: 40px;
+    width: 40px;
+}
+
+@media screen and (max-width: 992px) {
+
+    .navbar {
+        padding: 0;
+    }
+
+    .nav-link {
+        text-decoration: solid;
+        font-family: poppins;
+        color: #ebebed;
+    }
+
+    #navbarNav {
+        background-color: #404040;
+
+    }
+
+    #navTransformacije {
+        background-color: #a6282d;
+
+    }
+
+
+    #navLogin {
+        background-color: #a6282d;
+        display: flex;
+        justify-content: center;
+    }
+}
