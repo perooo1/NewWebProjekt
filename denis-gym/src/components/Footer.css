@@ -1,0 +1,15 @@
+.contactEmail {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.social-info {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #a6282d;
+    height: 450px;
+    padding-top: 80px;
+}

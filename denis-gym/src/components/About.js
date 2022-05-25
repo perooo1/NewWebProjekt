@@ -9,9 +9,6 @@ export default function About() {
     const coach2Img = require('D:/Labosi2021/WEB/denis-gym/src/images/coach2.jpg');
     return (
 
-       
-
-
         <div id="trainers">
             <h2 id="denisgymTeam">Upoznajte DenisGym tim</h2>
 

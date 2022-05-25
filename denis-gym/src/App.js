@@ -3,8 +3,11 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
-import Row from 'react-bootstrap/Row'
-import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row';
+import Container from 'react-bootstrap/Container';
+import Transformations from './components/Transformations';
+import Bundles from './components/Bundles';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -14,8 +17,11 @@ export default function App() {
       <Container>
         <Row>
           <About />
-          
+          <Transformations />
+          <Bundles />
+          <Footer />
         </Row>
+      
       </Container>
     </div>
   );

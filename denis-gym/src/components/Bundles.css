@@ -1,0 +1,143 @@
+#headerPricing {
+    width: 100%;
+    font-size: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+
+.pricing {
+    height: 800px;
+    padding: 0;
+}
+
+.pricing-box {
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+#price {
+    text-align: center;
+}
+
+.plan {
+    display: inline-block;
+    margin: 10px 1%;
+}
+
+.plan-inner {
+    background: #ebebed;
+    margin: 0 auto;
+    min-width: 280px;
+    max-width: 100%;
+    position: relative;
+}
+
+.entry-title {
+    background: #a6282d;
+    height: 140px;
+    position: relative;
+    text-align: center;
+    color: #ebebed;
+    margin-bottom: 30px;
+}
+
+.entry-title>h3 {
+    background: #a31418;
+    font-size: 20px;
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.entry-title .price {
+    position: absolute;
+    bottom: -25px;
+    background: #a31418;
+    height: 95px;
+    width: 95px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 5px solid #ebebed;
+    line-height: 80px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.price span {
+    position: absolute;
+    font-size: 11px;
+    bottom: -10px;
+    left: 30px;
+    font-weight: 400;
+}
+
+.entry-content {
+    color: #323232;
+}
+
+.entry-content ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.entry-content li {
+    border-bottom: 1px solid #a5a5a5;
+    padding: 10px 0;
+}
+
+.box2 .entry-title {
+    background: #8a2327;
+    height: 140px;
+    position: relative;
+    text-align: center;
+    color: #ebebed;
+    margin-bottom: 30px;
+}
+
+.box2 .entry-title>h3 {
+    background: #8a1216;
+    font-size: 20px;
+    padding: 5px 0;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+}
+
+.box2 .entry-title .price {
+    position: absolute;
+    bottom: -25px;
+    background: #8a1216;
+    height: 95px;
+    width: 95px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 5px solid #ebebed;
+    line-height: 80px;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.btn {
+    padding: 3em 0;
+    text-align: center;
+}
+
+.btn a {
+    background: #323232;
+    padding: 10px 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-decoration: none
+}
