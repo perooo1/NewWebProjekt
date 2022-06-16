@@ -8,68 +8,69 @@ import Container from 'react-bootstrap/Container';
 import Transformations from './components/Transformations';
 import Bundles from './components/Bundles';
 import Footer from './components/Footer';
-import Login from './components/Login';
+import Register from './components/Register';
 import { useState, useEffect } from "react";
 import { db } from "./firebase-config";
 import { collection, getDoc, getDocs } from "firebase/firestore";
 import { async } from '@firebase/util';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 
 export default function App() {
 
-/*
-  const [users, setUsers] = useState([]);
-  const usersCollectionRef = collection(db, "users");
-
-  useEffect(() =>{
-    const getUsers = async () =>{
-      const data = await getDocs(usersCollectionRef);
-      console.log(data);
-      setUsers(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
-    }
-
-
-    getUsers();
-  },[]);
-*/
+  /*
+    const [users, setUsers] = useState([]);
+    const usersCollectionRef = collection(db, "users");
+  
+    useEffect(() =>{
+      const getUsers = async () =>{
+        const data = await getDocs(usersCollectionRef);
+        console.log(data);
+        setUsers(data.docs.map((doc)=>({...doc.data(), id:doc.id})));
+      }
+  
+  
+      getUsers();
+    },[]);
+  */
 
   return (
 
-/*
-    <div className='App'>
-      {users.map((user)=>{
-        return(
-          <div>
-            {" "}
-            <h1>Name: {user.username}</h1>
-          </div>
-        );
-      })}
-    </div>
-*/
+    /*
+        <div className='App'>
+          {users.map((user)=>{
+            return(
+              <div>
+                {" "}
+                <h1>Name: {user.username}</h1>
+              </div>
+            );
+          })}
+        </div>
+    */
 
     <Router>
-    <div>
-      <Routes>
-        <Route path="/login" element = {<Login/>}/>
-      <Route path="/" element ={
-        <div>
-      <Navbar />
-      <Home />
-      <Container>
-        <Row>
-          <About />
-          <Transformations />
-          <Bundles />
-          <Footer />
-        </Row>
+      <div>
+        <Routes>
+          <Route path="/register" element={<Register />} />
+          <Route path="/" element={
+            <div>
+              <Navbar />
+              <Home />
+              <Container>
+                <Row>
+                  <About />
+                  <Transformations />
+                  <Bundles />
+                  <Footer />
+                </Row>
 
-      </Container>
+              </Container>
+            </div>
+          } />
+        </Routes>
       </div>
-      }/>
-      </Routes>
-    </div>
     </Router>
 
   );

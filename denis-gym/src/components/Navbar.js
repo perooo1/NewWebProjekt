@@ -24,7 +24,7 @@ export default function Navbar() {
                             <a className="nav-link" href="#usluge">Usluge</a>
                         </li>
                         <li className="nav-item" id="navLogin">
-                            <a href="/login" role="button" target="_self"> <img id="login-image" className="nav-link "
+                            <a href="/register" role="button" target="_self"> <img id="login-image" className="nav-link "
                                 src={icon} /></a>
                         </li>
                     </ul>
