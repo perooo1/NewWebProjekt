@@ -1,5 +1,5 @@
 import React from 'react';
-import 'D:/Labosi2021/WEB/denis-gym/src/components/Home.css'
+import './Home.css'
 
 
 export default function Home() {

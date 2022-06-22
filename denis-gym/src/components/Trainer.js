@@ -1,11 +1,11 @@
 import React from 'react';
-import 'D:/Labosi2021/WEB/denis-gym/src/components/Trainer.css'
+import './Trainer.css'
 
 export default function Trainer(props) {
 
     
     return (
-        <div className="trainer-box col-sm-6">
+        <div>
             <div className="trainer">
                 <img
                     className="trainer-pic"

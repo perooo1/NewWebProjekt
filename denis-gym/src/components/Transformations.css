@@ -1,19 +1,18 @@
-#titleTransformations {
+.titleTransformations {
     width: 100%;
     margin-top: 32px;
     margin-bottom: 5px;
     font-size: 48px;
+    text-align: center;
 }
 
-.transformations {
+#transformations {
     background-color: #a6282d;
     height: 100%;
-    margin-bottom: 30px;
 }
 
-#carouselClients {
+.carouselClients {
     position: relative;
-
     padding: 0;
     margin-top: 5%;
     margin-bottom: 100px;

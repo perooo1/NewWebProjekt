@@ -1,24 +1,30 @@
 import React from 'react';
-import 'D:/Labosi2021/WEB/denis-gym/src/components/About.css'
+import './About.css'
 import Trainer from './Trainer';
+import {Col,Row} from 'react-bootstrap';
 
 
 export default function About() {
 
-    const coach1Img = require('D:/Labosi2021/WEB/denis-gym/src/images/coach1.jpg');
-    const coach2Img = require('D:/Labosi2021/WEB/denis-gym/src/images/coach2.jpg');
+    const coach1Img = require('../images/coach1.jpg');
+    const coach2Img = require('../images/coach2.jpg');
     return (
 
-        <div id="trainers">
-            <h2 id="denisgymTeam">Upoznajte DenisGym tim</h2>
-
-            <div className="col-sm-6" id="trainer">
+        <div >
+            <h2 className="denisgymTeam">Upoznajte DenisGym tim</h2>
+            <Row>
+            <Col lg={6} className="trainer">
                 <div className="trainer-box">
                     <Trainer
                         img={coach1Img}
                         name="Denis Knežević"
                         descr="Osnivač Denis Gym-a. Bavi se fitnessom preko 10 godina te posjedujepreko 8 godina iskustva u radu s klijenima. Drugi čovjek u FBiH sa Basic ProCoach certifikatom. Posjeduje preko 20 certifikata iz raznih područja vezanih za fitness,poput weightlifting-a, powerlifting-a, nutricionizma i dr."
                     />
+                </div>
+            </Col>
+            <Col lg={6} className="trainer">
+
+                <div className="trainer-box">
                     <Trainer
                         img={coach2Img}
                         name="Lara Santini"
@@ -26,7 +32,9 @@ export default function About() {
                         s višegodišnjim trenerskim iskustvom u radu s klijentima."
                     />
                 </div>
-            </div>
+
+            </Col>
+            </Row>
         </div>
     )
 

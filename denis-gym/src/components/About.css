@@ -1,8 +1,6 @@
-.trainers {
-    background-color: #404040;
-}
 
-#denisgymTeam {
+
+.denisgymTeam {
 
     text-align: center;
     position: relative;
@@ -16,6 +14,8 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 100px;
     border-style: solid;
     border-color: rgba(166, 40, 45, .71);
@@ -25,3 +25,7 @@
     width: 400px;
 
 }
+
+#about {
+    background-color: #404040;
+  }

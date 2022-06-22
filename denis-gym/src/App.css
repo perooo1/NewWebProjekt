@@ -37,3 +37,12 @@
   }
 }
 
+
+.body{
+  height: 100%;
+  background-color: #404040;
+  text-decoration: solid;
+  font-family: poppins;
+  color: #ebebed;
+  text-align: center;
+}

@@ -1,21 +1,21 @@
 import React from 'react';
-import 'D:/Labosi2021/WEB/denis-gym/src/components/Footer.css'
-import instagram from 'D:/Labosi2021/WEB/denis-gym/src/images/instagram-24.png'
-import facebook from 'D:/Labosi2021/WEB/denis-gym/src/images/facebook-24.png'
-
+import './Footer.css'
+import instagram from '../images/instagram-24.png'
+import facebook from '../images/facebook-24.png'
+import {Col,Row} from 'react-bootstrap';
 
 export default function Footer() {
     return (
         <footer>
-            <div className="row footer">
-                <div className="col-sm-6">
+            <Row>
+                <Col sm={6}>
                     <div className="contacts">
                         <h3>Kontakti:</h3>
                         <p className="contactEmail">marko.denisgym@gmail.com</p>
                         <p className="contactEmail">santinilara24@gmail.com</p>
                     </div>
-                </div>
-                <div className="col-sm-6">
+                </Col>
+                <Col sm={6}>
                     <div className="social">
                         <h3>Društvene mreže:</h3>
                         <div className="social-info">
@@ -39,8 +39,9 @@ export default function Footer() {
                         </div>
 
                     </div>
-                </div>
-            </div>
+                 </Col>
+                 </Row>
+
         </footer >
     )
 }

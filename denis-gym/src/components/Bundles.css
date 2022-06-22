@@ -1,4 +1,4 @@
-#headerPricing {
+.headerPricing {
     width: 100%;
     font-size: 48px;
     margin-left: auto;
@@ -7,9 +7,11 @@
 }
 
 
-.pricing {
-    height: 800px;
-    padding: 0;
+#bundles {
+    height: fit-content;
+    padding-top: 30px;
+    background-color: #404040;
+    padding-bottom: 30px;
 }
 
 .pricing-box {
@@ -17,7 +19,7 @@
     margin-bottom: 30px;
 }
 
-#price {
+.price {
     text-align: center;
 }
 
@@ -136,8 +138,12 @@
 .btn a {
     background: #323232;
     padding: 10px 30px;
-    color: #fff;
+    color: #ebebed;
     text-transform: uppercase;
     font-weight: 700;
     text-decoration: none
+}
+
+.btn :hover {
+    opacity: 0.8;
 }

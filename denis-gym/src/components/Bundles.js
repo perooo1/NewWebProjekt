@@ -1,11 +1,13 @@
 import React from 'react';
-import 'D:/Labosi2021/WEB/denis-gym/src/components/Bundles.css'
+import './Bundles.css'
+import {Col,Row} from 'react-bootstrap';
 
 export default function Bundles(){
     return(
-        <div className="row pricing" id="usluge">
-        <h1 id="headerPricing">Odaberite naše usluge</h1>
-        <div className="col-sm-4 pricing-box box1">
+<div>
+        <h1 className="headerPricing">Odaberite naše usluge</h1>
+        <Row>
+        <Col lg={4} className="pricing-box box1">
 
           <div className="plan-inner">
             <div className="entry-title">
@@ -25,9 +27,8 @@ export default function Bundles(){
               <a href="#">Kupi paket</a>
             </div>
           </div>
-        </div>
-
-        <div className="col-sm-4 pricing-box box2">
+        </Col>
+      <Col lg={4} className=" pricing-box box2">
 
           <div className="plan-inner">
             <div className="entry-title">
@@ -47,9 +48,9 @@ export default function Bundles(){
               <a href="#">Kupi paket</a>
             </div>
           </div>
-        </div>
 
-        <div className="col-sm-4 pricing-box box3">
+        </Col>
+        <Col lg={4} className="pricing-box box3">
           <div className="plan-inner">
             <div className="entry-title">
               <h3>Full paket</h3>
@@ -69,10 +70,9 @@ export default function Bundles(){
               <a href="#">Kupi paket</a>
             </div>
           </div>
+
+        </Col>
+        </Row>
         </div>
-
-
-      </div>
-
     )
 }
