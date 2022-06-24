@@ -3,7 +3,6 @@ import './Login.css'
 import { useState } from "react";
 import { db } from "../firebase-config";
 import { collection, getDoc, getDocs, addDoc, setDoc, doc } from "firebase/firestore";
-import { async } from '@firebase/util';
 import { BrowserRouter as Router, Routes, Route, useNavigate} from "react-router-dom";
 import { getAuth , signInWithEmailAndPassword } from 'firebase/auth';
 
@@ -48,7 +47,7 @@ export default function Login() {
 
                 </div>
                 <div className="input-container">
-                    <label>Password </label>
+                    <label>Zaporka </label>
                     <input onChange={(event) => {
                         setPassword(event.target.value);
                     }} type="password" name="pass" required />
@@ -56,9 +55,9 @@ export default function Login() {
                 </div>
                 
 
-                    <button onClick={login}>Login</button>
+                    <button onClick={login}>Prijavi se</button>
 
-                    <div className='noAccMsg'>If you don't have account <a href='./register'>click here</a></div>
+                    <div className='noAccMsg'>Ako nemate korisnički nalog kliknite <a href='./register' id='regHere' > ovdje</a></div>
                     {errorMessage && (<p className='error'>{errorMessage}</p>)}
 
         </div>

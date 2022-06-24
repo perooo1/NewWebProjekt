@@ -16,7 +16,8 @@ import { async } from '@firebase/util';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from 'firebase/auth';
 import {auth} from "./firebase-config";
-
+import Logout from "./components/Logout";
+import Bought from "./components/Bought";
 
 
 export default function App() {
@@ -61,7 +62,19 @@ export default function App() {
             <Register></Register>
           </div>
         } />
-        </Routes>
+          <Route path="/logout" element={
+            <div className='body'>
+              <Navbar></Navbar>
+              <Logout></Logout>
+            </div>
+          }/>
+          <Route path="/bought" element={
+            <div className='body'>
+              <Navbar></Navbar>
+              <Bought></Bought>
+            </div>
+          }/>
+                  </Routes>
       </div>
     </Router>
 

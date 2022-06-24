@@ -24,11 +24,6 @@
     opacity: 0.8;
   }
   
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgba(166, 40, 45, .8);;
-  }
   
   .body{
     height: 100vh;
@@ -51,4 +46,12 @@
     color: #ba3939;
     background: #ffe0e0;
     border: 1px solid #a33a3a;
+  }
+
+  #regHere{
+    color: #d33f3f;
+  }
+
+  #regHere:hover{
+    color: #a33a3a;
   }

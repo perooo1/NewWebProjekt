@@ -5,17 +5,43 @@ import icon from '../images/login-icon.png'
 import { auth } from '../firebase-config';
 import { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
+import { db } from '../firebase-config';
+import { collection, doc, getDocs, Timestamp } from 'firebase/firestore';
 
 export default function Navbar() {
 
     const [user, setUser] = useState({});
+    const [expDate, setExpDate] = useState();
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState();
 
-    onAuthStateChanged(auth, (currentUser) =>{
-      setUser(currentUser);
+
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+        if (currentUser != null) {
+            setEmail(currentUser.email);
+            getUserData();
+        } else {
+            setEmail(null);
+            setUsername(null);
+            setExpDate(null);
+        }
     });
+    const usersCollectionRef = collection(db, "users");
 
-    
-    console.log(user);
+    const getUserData = async () => {
+
+        getDocs(usersCollectionRef).then((response) => {
+            response.docs.map((item) => {
+                if (email == item.data().email) {
+                    setUsername(item.data().username);
+                    setExpDate(new Date(item.data().expDate).toLocaleDateString()); //convert to ms
+
+                } else {
+                }
+            })
+        })
+    }
 
     return (
         <nav className="navbar navbar-expand-lg">
@@ -28,27 +54,49 @@ export default function Navbar() {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">
-                        <li className='nav-item' id='navUsername'>
-                            <p>Bok {user?user.email: "Gost"} </p>
-                        </li>
-                        <li className='nav-item' id='navExpDate'>
-                            <p>Datum isteka članarine: {user?.ExpDate}</p>
-                        </li>
+                    <ul className="navbar-nav">
+                        <div id="dispInfo">
+                            <li className='nav-item' id='navUsername'>
+                                {email == null ? (<div className='msgToUser' id="noName">Bok
+                                    Gost</div>) : (
+                                    <div className='msgToUser'>Bok {username}</div>
+                                )}
+                            </li>
+                            <li className='nav-item' id='navExpDate'>
+                                {expDate == null ? (<div className='noMsgToUser'>
+                                </div>)
+                                    : (<div className='msgToUser'> Datum isteka članarine: {expDate}</div>)}
+                            </li>
+                        </div>
+                        <div id='dispPage'>
+                            <li className="nav-item" id="navOnama">
+                                <a className="nav-link" onClick={() => {
+                                    const anchor = document.querySelector('#about')
+                                    anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                                }}>O nama</a>
+                            </li>
+                            <li className="nav-item" id="navTransformacije">
+                                <a className="nav-link" onClick={() => {
+                                    const anchor = document.querySelector('#transformations')
+                                    anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                                }}>Transformacije</a>
+                            </li>
+                            <li className="nav-item" id="navUsluge">
+                                <a className="nav-link" onClick={() => {
+                                    const anchor = document.querySelector('#bundles')
+                                    anchor.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                                }}>Usluge</a>
+                            </li>
+                            <li className="nav-item" id="navLogin">
+                                {email == null ? (
+                                    <a href="/login" role="button" target="_self"> <img id="login-image" className="nav-link "
+                                        src={icon} /></a>
+                                ) : (
+                                    <a href="/logout" className="nav-link ">Odjavite se</a>
+                                )}
+                            </li>
+                        </div>
 
-                        <li className="nav-item" id="navOnama">
-                            <a className="nav-link" href="/#about">O nama</a>
-                        </li>
-                        <li className="nav-item" id="navTransformacije">
-                            <a className="nav-link" href="/#transformations">Transformacije</a>
-                        </li>
-                        <li className="nav-item" id="navUsluge">
-                            <a className="nav-link" href="/#bundles">Usluge</a>
-                        </li>
-                        <li className="nav-item" id="navLogin">
-                            <a href="/login" role="button" target="_self"> <img id="login-image" className="nav-link "
-                                src={icon} /></a>
-                        </li>
                     </ul>
                 </div>
             </div>

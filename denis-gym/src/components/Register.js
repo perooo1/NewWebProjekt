@@ -2,9 +2,9 @@ import React, { createContext } from 'react';
 import './Register.css'
 import { useState } from "react";
 import { db } from "../firebase-config";
-import { collection, getDoc, getDocs, addDoc, setDoc, doc, CollectionReference } from "firebase/firestore";
+import { collection, getDocs,setDoc, doc, Timestamp } from "firebase/firestore";
 import { async } from '@firebase/util';
-import { BrowserRouter as Router, Routes, Route, Outlet, Navigate, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, useNavigate } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
@@ -17,8 +17,7 @@ export default function Register() {
     const [errorEmailMessage, setErrorEmailMessage] = useState('');
     const [errorUsernameMessage, setErrorUsernameMessage] = useState('');
     const [errorPasswordMessage, setErrorPasswordMessage] = useState('');
-    const [isValid, setIsValid] = useState(true)
-  
+    const [isValid, setIsValid] = useState(true);
     const auth = getAuth();
 
     const navigate = useNavigate();
@@ -27,8 +26,10 @@ export default function Register() {
 
     const register = async () =>{
         try{
+
             if(checkUserIsValidForRegistration()){
-            
+                const date = new Date().toISOString()
+
                 createUserWithEmailAndPassword(auth,email,password)
             .then( (userCredential) =>{
                 const user = userCredential.user;
@@ -40,7 +41,8 @@ export default function Register() {
                 setDoc(doc(db, "users",uid), {
                     email: email,
                     password: password,
-                    username: username
+                    username: username,
+                    expDate: date
                   });
 
 
@@ -73,7 +75,7 @@ export default function Register() {
 
                 </div>
                 <div className="input-container">
-                    <label>Password </label>
+                    <label>Zaporka </label>
                     <input onChange={(event) => {
                         checkPassword(event.target.value);
                     }} type="password" name="pass" required />
@@ -81,7 +83,7 @@ export default function Register() {
 
                 </div>
                 <div className="input-container">
-                    <label>Username </label>
+                    <label>Korisničko ime </label>
                     <input onBlur={(event) => {
                         checkUsernameAlreadyExists(event.target.value);
                     }} type="text" name="uname" required />
@@ -89,7 +91,7 @@ export default function Register() {
 
                 </div>
 
-                    <button onClick={register}>Register</button>
+                    <button onClick={register}>Registriraj se</button>
                    
         </div>
     )
@@ -104,18 +106,19 @@ export default function Register() {
             return true;
         }
         else {
-            setErrorEmailMessage("Email is invalid")
+            setErrorEmailMessage("Email nije ispravan")
             return false;
         }
     
     }
 
     function checkEmailAlreadyExists(email){
+
         getDocs(usersCollectionRef).then((response) =>{
             
             response.docs.map((item) =>{
                     if(email ==item.data().email){
-                        setErrorEmailMessage("User with that email already exists")
+                        setErrorEmailMessage("Korisnik s tim email-om već postoji")
                         setIsValid(false)
                     }
                 })
@@ -125,7 +128,7 @@ export default function Register() {
 
     function checkPassword(password){
         if(password.length<6){
-            setErrorPasswordMessage("Password must be atleast 6 charachters long");
+            setErrorPasswordMessage("Zaporka mora sadržavati najmanje 6 znakova");
             return false;
         } else{
             setErrorPasswordMessage("");
@@ -133,13 +136,15 @@ export default function Register() {
             return true;
         }
     }
+
+
     
     function checkUsernameAlreadyExists(username){
 
         getDocs(usersCollectionRef).then((response) =>{
                 response.docs.map((item) =>{
                     if(username ==item.data().username){
-                        setErrorUsernameMessage("User with that username already exists")
+                        setErrorUsernameMessage("Korisničko ime je zauzeto")
                         setIsValid(false)
                     }else{
                         setErrorUsernameMessage("");
@@ -153,6 +158,10 @@ export default function Register() {
 
     function checkUserIsValidForRegistration(){
         checkEmailAlreadyExists(email);
+        if(username.length<1){
+            setErrorUsernameMessage("Korisničko ime mora sadržavati najmanje 1 znak");
+            return false;
+        }
         if(checkEmailAlreadyExists(email) && checkEmailValid(email) 
             && checkPassword(password) && checkUsernameAlreadyExists(username)){
                 return true;

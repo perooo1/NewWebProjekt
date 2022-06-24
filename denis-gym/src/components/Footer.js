@@ -11,7 +11,7 @@ export default function Footer() {
                 <Col sm={6}>
                     <div className="contacts">
                         <h3>Kontakti:</h3>
-                        <p className="contactEmail">marko.denisgym@gmail.com</p>
+                        <p className="contactEmail">denis.denisgym@gmail.com</p>
                         <p className="contactEmail">santinilara24@gmail.com</p>
                     </div>
                 </Col>

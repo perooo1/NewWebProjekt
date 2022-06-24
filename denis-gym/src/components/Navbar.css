@@ -22,7 +22,6 @@ a {
 
 #navbarNav {
     padding: 0;
-
 }
 
 .navbar-brand {
@@ -44,20 +43,58 @@ a {
     width: 40px;
 }
 
+.msgToUser{
+    display: block;
+    padding: 0.5rem 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-decoration: solid;
+    font-family: poppins;
+    color: #ebebed;
+}
+
+.navbar-nav{
+    width: 100%;
+}
+
+.noMsgToUser{
+    padding: 0;
+}
+
+#dispInfo{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    
+}
+#dispPage{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+
 @media screen and (max-width: 992px) {
 
     .navbar {
         padding: 0;
     }
-
-    .nav-link {
-        text-decoration: solid;
-        font-family: poppins;
-        color: #ebebed;
+    
+    .navbar-brand{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .navbar-toggler{
+        margin-bottom: 2px;
+        margin-right: 0px;
     }
 
     #navbarNav {
         background-color: #404040;
+
+    }
+    #navExpDate{
+        background-color: #a6282d;
 
     }
 
@@ -71,5 +108,15 @@ a {
         background-color: #a6282d;
         display: flex;
         justify-content: center;
+    }
+
+    #noName{
+        background-color: #a6282d;
+    }
+    #dispInfo{
+        display: list-item;
+    }
+    #dispPage{
+        display: list-item;
     }
 }
