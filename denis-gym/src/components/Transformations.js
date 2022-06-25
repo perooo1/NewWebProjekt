@@ -16,7 +16,7 @@ export default function Transformations() {
       <Carousel.Item >
       <img src={transformation1} className="d-block w-100 client" alt="..." />
             <Carousel.Caption>
-              <h5>Toni Tonik</h5>
+              <h5>Antonio Džoić</h5>
               <p>Nakon 3 mjeseca osobnog treniranja</p>
             </Carousel.Caption>
         
@@ -33,8 +33,8 @@ export default function Transformations() {
           <Carousel.Item>
             <img src={transformation3} className="d-block w-100 client" alt="..." />
             <Carousel.Caption>
-              <h5>David Davidović</h5>
-              <p>Nakon 5 godina Full paketa</p>
+              <h5>David Marić</h5>
+              <p>Nakon 2 godine Full paketa</p>
             </Carousel.Caption>
             </Carousel.Item>
 

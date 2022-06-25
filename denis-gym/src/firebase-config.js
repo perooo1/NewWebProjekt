@@ -2,8 +2,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
-import {getFirestore} from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -15,14 +15,15 @@ import {getFirestore} from "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCqKO2JqiONImyefHh-jwA1AUJrrc0st2I",
-    authDomain: "webprojekt-6be1b.firebaseapp.com",
-    projectId: "webprojekt-6be1b",
-    storageBucket: "webprojekt-6be1b.appspot.com",
-    messagingSenderId: "286166425831",
-    appId: "1:286166425831:web:90af6b1db6176d92848242",
-    measurementId: "G-F2BY8VW8FR"
-};
+    apiKey: "AIzaSyD93cO9sfOUl5352aFSFo4UpDGiEKUmPkg",
+    authDomain: "webprojektnovabaza.firebaseapp.com",
+    projectId: "webprojektnovabaza",
+    storageBucket: "webprojektnovabaza.appspot.com",
+    messagingSenderId: "145083522697",
+    appId: "1:145083522697:web:166e4de06a73451f243058",
+    measurementId: "G-E4JB6WZKEQ"
+  };
+  
 
 // Initialize Firebase
 

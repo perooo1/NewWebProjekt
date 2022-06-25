@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './Navbar.css'
-import icon from '../images/login-icon.png'
+import './Navbar.css';
+import icon from '../images/login-icon.png';
+import gymLogo from '../images/gym-logo.png';
 import { auth } from '../firebase-config';
 import { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -47,6 +47,8 @@ export default function Navbar() {
         <nav className="navbar navbar-expand-lg">
             <div></div>
             <div className="container-fluid">
+            <a href="/" role="button" target="_self"> <img id="gym-image-logo" className="nav-link "
+                                        src={gymLogo} /></a>
                 <a className="navbar-brand" href="/">Denis Gym</a>
                 <button className="navbar-toggler navbar-dark" id="toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

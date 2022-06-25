@@ -65,6 +65,7 @@ a {
     display: flex;
     justify-content: flex-start;
     width: 100%;
+    margin-left: 250px;
     
 }
 #dispPage{
@@ -119,4 +120,9 @@ a {
     #dispPage{
         display: list-item;
     }
+}
+
+#gym-image-logo{
+    height: 40px;
+    width: 100px;
 }
