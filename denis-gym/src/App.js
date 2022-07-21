@@ -52,7 +52,7 @@ export default function App() {
           } />
           <Route path="/login" element={
             <div className="body">
-              <Navbar />
+              <Navbar/>
               <Login></Login>
             </div>
           } />

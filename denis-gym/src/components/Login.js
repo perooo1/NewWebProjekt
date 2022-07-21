@@ -27,7 +27,7 @@ export default function Login() {
                 console.log("login try block");
                 setErrorMessage("");
 
-                navigate("../");
+                navigate("../", {state:{name: "username", expDate:""}});
             })
         .catch((error) =>{
             console.log("login catch block");

@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useRef } from 'react';
 import './Register.css'
 import { useState } from "react";
 import { db } from "../firebase-config";
@@ -13,12 +13,16 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+    const confPass = useRef(null);
+    const pass = useRef(null);
     const usersCollectionRef = collection(db,"users");
     const [errorEmailMessage, setErrorEmailMessage] = useState('');
     const [errorUsernameMessage, setErrorUsernameMessage] = useState('');
     const [errorPasswordMessage, setErrorPasswordMessage] = useState('');
+    const [errorSamePasswordMessage, setErrorSamePasswordMessage] = useState('');
     const [isValid, setIsValid] = useState(true);
     const auth = getAuth();
+
 
     const navigate = useNavigate();
 
@@ -27,7 +31,7 @@ export default function Register() {
     const register = async () =>{
         try{
 
-            if(checkUserIsValidForRegistration()){
+            if(checkUserIsValidForRegistration() && checkConfirmPassword()){
                 const date = new Date().toISOString()
 
                 createUserWithEmailAndPassword(auth,email,password)
@@ -76,12 +80,17 @@ export default function Register() {
                 </div>
                 <div className="input-container">
                     <label>Zaporka </label>
-                    <input onChange={(event) => {
-                        checkPassword(event.target.value);
-                    }} type="password" name="pass" required />
+                    <input ref = {pass} type="password" name="pass" required />
                      {errorPasswordMessage && (<p className='error'>{errorPasswordMessage}</p>)}
 
                 </div>
+                <div className="input-container">
+                    <label>Potvrdi zaporku </label>
+                    <input ref = {confPass} type="password" name="confPass" required />
+                     {errorSamePasswordMessage && (<p className='error'>{errorSamePasswordMessage}</p>)}
+
+                </div>
+
                 <div className="input-container">
                     <label>Korisničko ime </label>
                     <input onBlur={(event) => {
@@ -126,13 +135,13 @@ export default function Register() {
         return isValid;
     }
 
-    function checkPassword(password){
-        if(password.length<6){
+    function checkPassword(){
+        if(pass.current.value.length<6){
             setErrorPasswordMessage("Zaporka mora sadržavati najmanje 6 znakova");
             return false;
         } else{
             setErrorPasswordMessage("");
-            setPassword(password);
+            setPassword(pass.current.value);
             return true;
         }
     }
@@ -156,6 +165,17 @@ export default function Register() {
         return isValid;
     }
 
+    function checkConfirmPassword(){
+        if(pass.current.value === confPass.current.value){
+            setErrorSamePasswordMessage("");
+            return true;
+        } else{
+            setErrorSamePasswordMessage("Zaporka i potvrđena zaporka nisu jednake")
+            return false;
+        }
+
+    }
+
     function checkUserIsValidForRegistration(){
         checkEmailAlreadyExists(email);
         if(username.length<1){
@@ -163,8 +183,8 @@ export default function Register() {
             return false;
         }
         if(checkEmailAlreadyExists(email) && checkEmailValid(email) 
-            && checkPassword(password) && checkUsernameAlreadyExists(username)){
-                return true;
+            && checkPassword() && checkUsernameAlreadyExists(username)){
+                    return true;
             }
             else{
                 return false

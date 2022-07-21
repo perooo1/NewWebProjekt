@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../firebase-config';
 import { collection, doc, getDocs, Timestamp } from 'firebase/firestore';
+import { useLocation } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -15,9 +16,10 @@ export default function Navbar() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState();
 
-
+    
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+
         if (currentUser != null) {
             setEmail(currentUser.email);
             getUserData();
@@ -30,7 +32,7 @@ export default function Navbar() {
     const usersCollectionRef = collection(db, "users");
 
     const getUserData = async () => {
-
+        
         getDocs(usersCollectionRef).then((response) => {
             response.docs.map((item) => {
                 if (email == item.data().email) {
